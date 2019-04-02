@@ -1,0 +1,10 @@
+version: '2'
+services:
+    proxy:
+        image: httpd:2.4-alpine
+        ports:
+            - "8080:80"
+        volumes:
+            - ./conf/httpd.conf:/usr/local/apache2/conf/httpd.conf
+            - ./conf/extra/httpd-vhosts.conf:/usr/local/apache2/conf/extra/httpd-vhosts.conf
+            - ./conf/extra/leodis.map:/usr/local/apache2/conf/extra/leodis.map
